@@ -25,7 +25,7 @@ ForEach ($Manager in $Managers) {
     [array]$Reports = Get-User -Filter "Manager -eq '$Dn'"
     If ($Reports.Count -eq 0) { $ManagersWithoutDR.Add($Manager.DisplayName) }
     $ReportLine = [PSCustomObject][Ordered]@{  # Write out details of the manager's reports
-       Mnaager             = $Manager.DisplayName
+       Manager             = $Manager.DisplayName
        UPN                 = $Manager.UserPrincipalName
        "Number of reports" = $Reports.Count
        "Direct Reports"    = $Reports.DisplayName -join ", " }
